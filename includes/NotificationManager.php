@@ -459,11 +459,3 @@ class NotificationManager
 }
 
 // Global notification manager instance
-function getNotificationManager()
-{
-    static $notificationManager = null;
-    if ($notificationManager === null) {
-        $notificationManager = new NotificationManager();
-    }
-    return $notificationManager;
-}

@@ -581,10 +581,3 @@ class Document {
 }
 
 // Global document instance
-function getDocumentManager() {
-    static $documentManager = null;
-    if ($documentManager === null) {
-        $documentManager = new Document();
-    }
-    return $documentManager;
-}

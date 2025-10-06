@@ -367,11 +367,3 @@ class ActivityLogger {
     }
 }
 
-// Global activity logger instance
-function getActivityLogger() {
-    static $activityLogger = null;
-    if ($activityLogger === null) {
-        $activityLogger = new ActivityLogger();
-    }
-    return $activityLogger;
-}

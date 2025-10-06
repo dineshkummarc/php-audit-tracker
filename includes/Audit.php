@@ -587,10 +587,3 @@ class Audit {
 }
 
 // Global audit instance
-function getAuditManager() {
-    static $auditManager = null;
-    if ($auditManager === null) {
-        $auditManager = new Audit();
-    }
-    return $auditManager;
-}

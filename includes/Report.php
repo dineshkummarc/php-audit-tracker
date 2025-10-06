@@ -714,10 +714,3 @@ class Report {
 }
 
 // Global report instance
-function getReportManager() {
-    static $reportManager = null;
-    if ($reportManager === null) {
-        $reportManager = new Report();
-    }
-    return $reportManager;
-}

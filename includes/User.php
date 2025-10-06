@@ -483,10 +483,3 @@ class User {
 }
 
 // Global user instance
-function getUserManager() {
-    static $userManager = null;
-    if ($userManager === null) {
-        $userManager = new User();
-    }
-    return $userManager;
-}

@@ -555,3 +555,19 @@ function getReportManager() {
     }
     return $reportManager;
 }
+
+function getNotificationManager() {
+    static $notificationManager = null;
+    if ($notificationManager === null) {
+        $notificationManager = new NotificationManager();
+    }
+    return $notificationManager;
+}
+
+function getActivityLogger() {
+    static $activityLogger = null;
+    if ($activityLogger === null) {
+        $activityLogger = new ActivityLogger();
+    }
+    return $activityLogger;
+}
