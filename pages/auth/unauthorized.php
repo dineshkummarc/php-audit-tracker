@@ -55,7 +55,7 @@ $user = $auth->getCurrentUser();
                             Go to Dashboard
                         </a>
                         
-                        <a href="/auth/logout" class="btn btn-outline w-full">
+                        <a href="<?php echo BASE_URL; ?>/auth/logout" class="btn btn-outline w-full">
                             Sign Out
                         </a>
                     </div>

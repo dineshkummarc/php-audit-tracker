@@ -89,7 +89,7 @@ $currentUser = $auth->getCurrentUser();
         <!-- Sidebar Navigation -->
         <nav class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <a href="/admin/dashboard" class="navbar-brand">
+                <a href="<?php echo BASE_URL; ?>/admin/dashboard" class="navbar-brand">
                     <i class="bi bi-shield-check"></i>
                     IT Audit Tracker
                 </a>
@@ -98,7 +98,7 @@ $currentUser = $auth->getCurrentUser();
             <div class="sidebar-nav">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="/admin/dashboard" class="nav-link <?php echo $currentPage === 'dashboard' ? 'active' : ''; ?>">
+                        <a href="<?php echo BASE_URL; ?>/admin/dashboard" class="nav-link <?php echo $currentPage === 'dashboard' ? 'active' : ''; ?>">
                             <i class="bi bi-speedometer2 nav-icon"></i>
                             Dashboard
                         </a>
@@ -106,7 +106,7 @@ $currentUser = $auth->getCurrentUser();
                     
                     <?php if ($auth->hasPermission('manage_users')): ?>
                     <li class="nav-item">
-                        <a href="/admin/users" class="nav-link <?php echo $currentPage === 'users' ? 'active' : ''; ?>">
+                        <a href="<?php echo BASE_URL; ?>/admin/users" class="nav-link <?php echo $currentPage === 'users' ? 'active' : ''; ?>">
                             <i class="bi bi-people nav-icon"></i>
                             Users
                         </a>
@@ -115,7 +115,7 @@ $currentUser = $auth->getCurrentUser();
                     
                     <?php if ($auth->hasPermission('create_audit')): ?>
                     <li class="nav-item">
-                        <a href="/admin/audits" class="nav-link <?php echo $currentPage === 'audits' ? 'active' : ''; ?>">
+                        <a href="<?php echo BASE_URL; ?>/admin/audits" class="nav-link <?php echo $currentPage === 'audits' ? 'active' : ''; ?>">
                             <i class="bi bi-clipboard-check nav-icon"></i>
                             Audits
                         </a>
@@ -124,7 +124,7 @@ $currentUser = $auth->getCurrentUser();
                     
                     <?php if ($auth->hasPermission('view_reports')): ?>
                     <li class="nav-item">
-                        <a href="/admin/reports" class="nav-link <?php echo $currentPage === 'reports' ? 'active' : ''; ?>">
+                        <a href="<?php echo BASE_URL; ?>/admin/reports" class="nav-link <?php echo $currentPage === 'reports' ? 'active' : ''; ?>">
                             <i class="bi bi-file-earmark-text nav-icon"></i>
                             Reports
                         </a>
@@ -132,14 +132,14 @@ $currentUser = $auth->getCurrentUser();
                     <?php endif; ?>
                     
                     <li class="nav-item">
-                        <a href="/admin/activities" class="nav-link <?php echo $currentPage === 'activities' ? 'active' : ''; ?>">
+                        <a href="<?php echo BASE_URL; ?>/admin/activities" class="nav-link <?php echo $currentPage === 'activities' ? 'active' : ''; ?>">
                             <i class="bi bi-activity nav-icon"></i>
                             Activities
                         </a>
                     </li>
                     
                     <li class="nav-item">
-                        <a href="/admin/notifications" class="nav-link <?php echo $currentPage === 'notifications' ? 'active' : ''; ?>">
+                        <a href="<?php echo BASE_URL; ?>/admin/notifications" class="nav-link <?php echo $currentPage === 'notifications' ? 'active' : ''; ?>">
                             <i class="bi bi-bell nav-icon"></i>
                             Notifications
                             <?php if (isset($unreadNotifications) && $unreadNotifications > 0): ?>
@@ -150,7 +150,7 @@ $currentUser = $auth->getCurrentUser();
                     
                     <?php if ($auth->isSuperAdmin()): ?>
                     <li class="nav-item">
-                        <a href="/admin/settings" class="nav-link <?php echo $currentPage === 'settings' ? 'active' : ''; ?>">
+                        <a href="<?php echo BASE_URL; ?>/admin/settings" class="nav-link <?php echo $currentPage === 'settings' ? 'active' : ''; ?>">
                             <i class="bi bi-gear nav-icon"></i>
                             Settings
                         </a>
@@ -172,11 +172,11 @@ $currentUser = $auth->getCurrentUser();
                 </div>
                 
                 <div class="user-actions">
-                    <a href="/admin/profile" class="btn btn-outline btn-sm">
+                    <a href="<?php echo BASE_URL; ?>/admin/profile" class="btn btn-outline btn-sm">
                         <i class="bi bi-person"></i>
                         Profile
                     </a>
-                    <a href="/auth/logout" class="btn btn-outline btn-sm" data-confirm="Are you sure you want to logout?">
+                    <a href="<?php echo BASE_URL; ?>/auth/logout" class="btn btn-outline btn-sm" data-confirm="Are you sure you want to logout?">
                         <i class="bi bi-box-arrow-right"></i>
                         Logout
                     </a>
@@ -227,7 +227,7 @@ $currentUser = $auth->getCurrentUser();
                         <div class="notification-menu" id="notification-menu">
                             <div class="notification-header">
                                 <h4>Notifications</h4>
-                                <a href="/admin/notifications" class="view-all">View All</a>
+                                <a href="<?php echo BASE_URL; ?>/admin/notifications" class="view-all">View All</a>
                             </div>
                             <div class="notification-list" data-notifications>
                                 <!-- Notifications will be loaded here -->
@@ -246,16 +246,16 @@ $currentUser = $auth->getCurrentUser();
                         </button>
                         
                         <div class="user-menu" id="user-menu">
-                            <a href="/admin/profile" class="user-menu-item">
+                            <a href="<?php echo BASE_URL; ?>/admin/profile" class="user-menu-item">
                                 <i class="bi bi-person"></i>
                                 Profile
                             </a>
-                            <a href="/admin/settings" class="user-menu-item">
+                            <a href="<?php echo BASE_URL; ?>/admin/settings" class="user-menu-item">
                                 <i class="bi bi-gear"></i>
                                 Settings
                             </a>
                             <hr class="user-menu-divider">
-                            <a href="/auth/logout" class="user-menu-item" data-confirm="Are you sure you want to logout?">
+                            <a href="<?php echo BASE_URL; ?>/auth/logout" class="user-menu-item" data-confirm="Are you sure you want to logout?">
                                 <i class="bi bi-box-arrow-right"></i>
                                 Logout
                             </a>
@@ -304,13 +304,13 @@ $currentUser = $auth->getCurrentUser();
             <header class="public-header">
                 <div class="container">
                     <div class="header-content">
-                        <a href="/" class="logo">
+                        <a href="<?php echo BASE_URL; ?>/" class="logo">
                             <i class="bi bi-shield-check"></i>
                             IT Audit Tracker
                         </a>
                         
                         <nav class="public-nav">
-                            <a href="/auth/login" class="btn btn-primary">Sign In</a>
+                            <a href="<?php echo BASE_URL; ?>/auth/login" class="btn btn-primary">Sign In</a>
                         </nav>
                     </div>
                 </div>

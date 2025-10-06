@@ -33,11 +33,11 @@ if ($auth->isLoggedIn()) {
     <nav class="navbar">
         <div class="container">
             <div class="flex items-center justify-between">
-                <a href="/" class="navbar-brand">
+                <a href="<?php echo BASE_URL; ?>/" class="navbar-brand">
                     <?php echo APP_NAME; ?>
                 </a>
                 <div class="flex items-center space-x-4">
-                    <a href="/auth/login" class="btn btn-primary">Sign In</a>
+                    <a href="<?php echo BASE_URL; ?>/auth/login" class="btn btn-primary">Sign In</a>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@ if ($auth->isLoggedIn()) {
                 Track compliance, manage findings, and generate comprehensive reports.
             </p>
             <div class="flex justify-center space-x-4">
-                <a href="/auth/login" class="btn btn-lg bg-white text-blue-600 hover:bg-gray-100">
+                <a href="<?php echo BASE_URL; ?>/auth/login" class="btn btn-lg bg-white text-blue-600 hover:bg-gray-100">
                     Get Started
                 </a>
                 <a href="#features" class="btn btn-lg btn-outline border-white text-white hover:bg-white hover:text-blue-600">
@@ -179,7 +179,7 @@ if ($auth->isLoggedIn()) {
             <p class="text-xl mb-8 max-w-2xl mx-auto">
                 Join organizations that trust our platform to manage their IT audit requirements efficiently and securely.
             </p>
-            <a href="/auth/login" class="btn btn-lg bg-blue-600 hover:bg-blue-700">
+            <a href="<?php echo BASE_URL; ?>/auth/login" class="btn btn-lg bg-blue-600 hover:bg-blue-700">
                 Get Started Today
             </a>
         </div>

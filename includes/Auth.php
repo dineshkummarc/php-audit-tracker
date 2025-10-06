@@ -202,7 +202,7 @@ class Auth {
             if (isAjaxRequest()) {
                 sendErrorResponse('Authentication required', 401);
             } else {
-                redirect('/auth/login.php');
+                redirect(BASE_URL . '/auth/login');
             }
         }
     }
@@ -217,7 +217,7 @@ class Auth {
             if (isAjaxRequest()) {
                 sendErrorResponse('Insufficient permissions', 403);
             } else {
-                redirect('/auth/unauthorized.php');
+                redirect(BASE_URL . '/auth/unauthorized');
             }
         }
     }
@@ -232,7 +232,7 @@ class Auth {
             if (isAjaxRequest()) {
                 sendErrorResponse('Insufficient permissions', 403);
             } else {
-                redirect('/auth/unauthorized.php');
+                redirect(BASE_URL . '/auth/unauthorized');
             }
         }
     }
@@ -247,7 +247,7 @@ class Auth {
             if (isAjaxRequest()) {
                 sendErrorResponse('Admin access required', 403);
             } else {
-                redirect('/auth/unauthorized.php');
+                redirect(BASE_URL . '/auth/unauthorized');
             }
         }
     }

@@ -83,7 +83,7 @@ $csrfToken = generateCSRFToken();
                         </div>
                     <?php endif; ?>
 
-                    <form method="POST" action="/auth/login" data-ajax>
+                    <form method="POST" action="<?php echo BASE_URL; ?>/auth/login" data-ajax>
                         <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
                         
                         <div class="form-group">

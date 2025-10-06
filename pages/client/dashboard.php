@@ -18,7 +18,7 @@ $user = $auth->getCurrentUser();
 
 // Check if user has client access
 if (!$auth->hasRole(['client', 'department'])) {
-    redirect('/admin/dashboard');
+    redirect(BASE_URL . '/admin/dashboard');
 }
 
 $documentManager = getDocumentManager();
@@ -61,19 +61,19 @@ $csrfToken = generateCSRFToken();
             <h2 class="text-xl font-bold text-gray-900"><?php echo APP_NAME; ?></h2>
         </div>
         <nav class="sidebar-nav">
-            <a href="/client/dashboard" class="nav-link active">
+            <a href="<?php echo BASE_URL; ?>/client/dashboard" class="nav-link active">
                 <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
                 </svg>
                 Dashboard
             </a>
-            <a href="/client/documents" class="nav-link">
+            <a href="<?php echo BASE_URL; ?>/client/documents" class="nav-link">
                 <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
                 Documents
             </a>
-            <a href="/client/notifications" class="nav-link">
+            <a href="<?php echo BASE_URL; ?>/client/notifications" class="nav-link">
                 <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM4 19h6v-2H4v2zM4 15h6v-2H4v2zM4 11h6V9H4v2zM4 7h6V5H4v2z"></path>
                 </svg>
@@ -107,7 +107,7 @@ $csrfToken = generateCSRFToken();
                     </div>
                     <div class="flex items-center space-x-2">
                         <span class="text-sm text-gray-600"><?php echo escapeHtml(USER_ROLES[$user['role']]); ?></span>
-                        <a href="/auth/logout" class="btn btn-outline btn-sm">Logout</a>
+                        <a href="<?php echo BASE_URL; ?>/auth/logout" class="btn btn-outline btn-sm">Logout</a>
                     </div>
                 </div>
             </div>
@@ -182,7 +182,7 @@ $csrfToken = generateCSRFToken();
                                 <h3 class="card-title">Document Requests</h3>
                                 <p class="card-description">Documents pending your action</p>
                             </div>
-                            <a href="/client/documents" class="btn btn-outline btn-sm">View All</a>
+                            <a href="<?php echo BASE_URL; ?>/client/documents" class="btn btn-outline btn-sm">View All</a>
                         </div>
                     </div>
                     <div class="card-content">
@@ -227,7 +227,7 @@ $csrfToken = generateCSRFToken();
                                 <h3 class="card-title">Recent Notifications</h3>
                                 <p class="card-description">Latest updates and alerts</p>
                             </div>
-                            <a href="/client/notifications" class="btn btn-outline btn-sm">View All</a>
+                            <a href="<?php echo BASE_URL; ?>/client/notifications" class="btn btn-outline btn-sm">View All</a>
                         </div>
                     </div>
                     <div class="card-content">
@@ -271,7 +271,7 @@ $csrfToken = generateCSRFToken();
                 </div>
                 <div class="card-content">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <a href="/client/documents" class="btn btn-outline h-auto flex-col items-start p-4 hover:bg-blue-50 hover:border-blue-500">
+                        <a href="<?php echo BASE_URL; ?>/client/documents" class="btn btn-outline h-auto flex-col items-start p-4 hover:bg-blue-50 hover:border-blue-500">
                             <svg class="w-5 h-5 mb-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
                             </svg>
@@ -279,7 +279,7 @@ $csrfToken = generateCSRFToken();
                             <span class="text-xs text-gray-600 mt-1">Submit requested documents</span>
                         </a>
                         
-                        <a href="/client/documents" class="btn btn-outline h-auto flex-col items-start p-4 hover:bg-orange-50 hover:border-orange-500">
+                        <a href="<?php echo BASE_URL; ?>/client/documents" class="btn btn-outline h-auto flex-col items-start p-4 hover:bg-orange-50 hover:border-orange-500">
                             <svg class="w-5 h-5 mb-2 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
@@ -287,7 +287,7 @@ $csrfToken = generateCSRFToken();
                             <span class="text-xs text-gray-600 mt-1">Check document requests</span>
                         </a>
                         
-                        <a href="/client/notifications" class="btn btn-outline h-auto flex-col items-start p-4 hover:bg-green-50 hover:border-green-500">
+                        <a href="<?php echo BASE_URL; ?>/client/notifications" class="btn btn-outline h-auto flex-col items-start p-4 hover:bg-green-50 hover:border-green-500">
                             <svg class="w-5 h-5 mb-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM4 19h6v-2H4v2zM4 15h6v-2H4v2zM4 11h6V9H4v2zM4 7h6V5H4v2z"></path>
                             </svg>

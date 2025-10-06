@@ -41,7 +41,7 @@ require_once APP_ROOT . '/config/config.php';
 
             <!-- Actions -->
             <div class="space-y-4">
-                <a href="/" class="btn btn-primary">
+                <a href="<?php echo BASE_URL; ?>/" class="btn btn-primary">
                     Go Home
                 </a>
                 <div class="text-sm text-gray-500">

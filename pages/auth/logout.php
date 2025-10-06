@@ -17,5 +17,5 @@ $auth = getAuth();
 $result = $auth->logout();
 
 // Redirect to login page
-redirect('/auth/login');
+redirect(BASE_URL . '/auth/login');
 ?>
