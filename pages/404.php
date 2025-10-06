@@ -17,8 +17,8 @@ require_once APP_ROOT . '/config/config.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found - <?php echo APP_NAME; ?></title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="<?php echo BASE_URL; ?>/favicon.ico">
 </head>
 <body class="bg-gray-50">
     <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -51,6 +51,6 @@ require_once APP_ROOT . '/config/config.php';
         </div>
     </div>
 
-    <script src="/assets/js/app.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/app.js"></script>
 </body>
 </html>

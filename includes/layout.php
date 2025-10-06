@@ -26,7 +26,7 @@ $currentUser = $auth->getCurrentUser();
     <title><?php echo $pageTitle ?? 'IT Audit Tracker'; ?></title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="<?php echo BASE_URL; ?>/assets/images/favicon.ico">
     
     <!-- CDN Libraries for Enhanced Performance -->
     <!-- Chart.js for data visualization -->
@@ -44,7 +44,7 @@ $currentUser = $auth->getCurrentUser();
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/assets/css/style.css">
     
     <!-- Page-specific CSS -->
     <?php if (isset($pageCSS)): ?>
@@ -54,7 +54,7 @@ $currentUser = $auth->getCurrentUser();
     <?php endif; ?>
     
     <!-- Performance Optimization -->
-    <link rel="preload" href="/assets/js/app.js" as="script">
+    <link rel="preload" href="<?php echo BASE_URL; ?>/assets/js/app.js" as="script">
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -334,7 +334,7 @@ $currentUser = $auth->getCurrentUser();
     <div class="notification-container"></div>
     
     <!-- Custom JavaScript -->
-    <script src="/assets/js/app.js"></script>
+    <script src="<?php echo BASE_URL; ?>/assets/js/app.js"></script>
     
     <!-- Page-specific JavaScript -->
     <?php if (isset($pageJS)): ?>
