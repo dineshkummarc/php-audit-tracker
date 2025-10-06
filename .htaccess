@@ -39,25 +39,22 @@ RewriteEngine On
 </Files>
 
 # Protect uploads directory from direct access
-<Directory "uploads">
-    Options -Indexes
-    <Files "*.php">
-        Order Allow,Deny
-        Deny from all
-    </Files>
-</Directory>
+<FilesMatch "^uploads/.*\.php$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
 
 # Protect logs directory
-<Directory "logs">
+<FilesMatch "^logs/.*$">
     Order Allow,Deny
     Deny from all
-</Directory>
+</FilesMatch>
 
 # Protect includes directory
-<Directory "includes">
+<FilesMatch "^includes/.*$">
     Order Allow,Deny
     Deny from all
-</Files>
+</FilesMatch>
 
 # URL Rewriting Rules
 # Route all requests through index.php
