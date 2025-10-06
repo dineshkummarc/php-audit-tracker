@@ -9,11 +9,20 @@ if (!defined('APP_ROOT')) {
     define('APP_ROOT', dirname(__DIR__));
 }
 
+// Session Configuration (must be set before any output)
+if (!headers_sent()) {
+    ini_set('session.cookie_httponly', 1);
+    ini_set('session.cookie_secure', 0); // Set to 1 in production with HTTPS
+    ini_set('session.use_strict_mode', 1);
+    ini_set('session.cookie_samesite', 'Strict');
+}
+
 // Application Configuration
 define('APP_NAME', 'IT Audit Tracker');
 define('APP_VERSION', '1.0.0');
 define('APP_ENV', 'development'); // development, staging, production
 define('APP_DEBUG', true);
+define('BASE_URL', 'http://localhost/php-audit-tracker');
 
 // Database Configuration
 define('DB_HOST', 'localhost');
@@ -180,11 +189,7 @@ if (APP_DEBUG) {
     ini_set('display_errors', 0);
 }
 
-// Session Configuration
-ini_set('session.cookie_httponly', 1);
-ini_set('session.cookie_secure', 0); // Set to 1 in production with HTTPS
-ini_set('session.use_strict_mode', 1);
-ini_set('session.cookie_samesite', 'Strict');
+// Session configuration moved to top of file
 
 // Create necessary directories if they don't exist
 $directories = [
@@ -246,39 +251,7 @@ function hasAdminAccess($userRole) {
     return in_array($userRole, ['super_admin', 'audit_manager', 'auditor', 'management']);
 }
 
-// Helper function to generate unique ID
-function generateId($prefix = '') {
-    return $prefix . uniqid() . '_' . bin2hex(random_bytes(4));
-}
-
-// Helper function to sanitize input
-function sanitizeInput($input) {
-    if (is_array($input)) {
-        return array_map('sanitizeInput', $input);
-    }
-    return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
-}
-
-// Helper function to format date
-function formatDate($date, $format = 'Y-m-d H:i:s') {
-    if (is_string($date)) {
-        $date = new DateTime($date);
-    }
-    return $date->format($format);
-}
-
-// Helper function to get relative time
-function getRelativeTime($date) {
-    $time = time() - strtotime($date);
-    
-    if ($time < 60) return 'just now';
-    if ($time < 3600) return floor($time/60) . ' minutes ago';
-    if ($time < 86400) return floor($time/3600) . ' hours ago';
-    if ($time < 2592000) return floor($time/86400) . ' days ago';
-    if ($time < 31536000) return floor($time/2592000) . ' months ago';
-    
-    return floor($time/31536000) . ' years ago';
-}
+// Helper functions are now defined in includes/functions.php
 
 // Helper function to log activity
 function logActivity($userId, $userName, $userRole, $action, $description, $severity = 'info', $resource = null, $metadata = null) {

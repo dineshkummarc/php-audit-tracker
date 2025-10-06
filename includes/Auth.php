@@ -10,7 +10,6 @@ if (!defined('APP_ROOT')) {
 }
 
 require_once APP_ROOT . '/config/config.php';
-require_once APP_ROOT . '/config/database.php';
 
 class Auth {
     private $db;
@@ -519,11 +518,4 @@ class Auth {
     }
 }
 
-// Global auth instance
-function getAuth() {
-    static $auth = null;
-    if ($auth === null) {
-        $auth = new Auth();
-    }
-    return $auth;
-}
+// getAuth() function is defined in includes/functions.php

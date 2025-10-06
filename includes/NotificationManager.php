@@ -11,7 +11,6 @@ if (!defined('APP_ROOT')) {
 }
 
 require_once APP_ROOT . '/config/config.php';
-require_once APP_ROOT . '/config/database.php';
 
 class NotificationManager
 {

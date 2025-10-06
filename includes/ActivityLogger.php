@@ -10,7 +10,6 @@ if (!defined('APP_ROOT')) {
 }
 
 require_once APP_ROOT . '/config/config.php';
-require_once APP_ROOT . '/config/database.php';
 
 class ActivityLogger {
     private $db;
@@ -120,7 +119,12 @@ class ActivityLogger {
         
         // Process activities
         foreach ($activities as &$activity) {
-            $activity['metadata'] = $activity['metadata'] ? json_decode($activity['metadata'], true) : null;
+            if ($activity['metadata']) {
+                $decoded = json_decode($activity['metadata'], true);
+                $activity['metadata'] = $decoded ?: null;
+            } else {
+                $activity['metadata'] = null;
+            }
         }
         
         return $activities;
@@ -135,7 +139,12 @@ class ActivityLogger {
         
         // Process activities
         foreach ($activities as &$activity) {
-            $activity['metadata'] = $activity['metadata'] ? json_decode($activity['metadata'], true) : null;
+            if ($activity['metadata']) {
+                $decoded = json_decode($activity['metadata'], true);
+                $activity['metadata'] = $decoded ?: null;
+            } else {
+                $activity['metadata'] = null;
+            }
         }
         
         return $activities;
@@ -150,7 +159,12 @@ class ActivityLogger {
         
         // Process activities
         foreach ($activities as &$activity) {
-            $activity['metadata'] = $activity['metadata'] ? json_decode($activity['metadata'], true) : null;
+            if ($activity['metadata']) {
+                $decoded = json_decode($activity['metadata'], true);
+                $activity['metadata'] = $decoded ?: null;
+            } else {
+                $activity['metadata'] = null;
+            }
         }
         
         return $activities;
@@ -234,7 +248,12 @@ class ActivityLogger {
         $activity = $this->db->fetch($sql, ['id' => $id]);
         
         if ($activity) {
-            $activity['metadata'] = $activity['metadata'] ? json_decode($activity['metadata'], true) : null;
+            if ($activity['metadata']) {
+                $decoded = json_decode($activity['metadata'], true);
+                $activity['metadata'] = $decoded ?: null;
+            } else {
+                $activity['metadata'] = null;
+            }
         }
         
         return $activity;
@@ -274,7 +293,12 @@ class ActivityLogger {
         
         // Process activities
         foreach ($activities as &$activity) {
-            $activity['metadata'] = $activity['metadata'] ? json_decode($activity['metadata'], true) : null;
+            if ($activity['metadata']) {
+                $decoded = json_decode($activity['metadata'], true);
+                $activity['metadata'] = $decoded ?: null;
+            } else {
+                $activity['metadata'] = null;
+            }
         }
         
         return $activities;
@@ -289,7 +313,12 @@ class ActivityLogger {
         
         // Process activities
         foreach ($activities as &$activity) {
-            $activity['metadata'] = $activity['metadata'] ? json_decode($activity['metadata'], true) : null;
+            if ($activity['metadata']) {
+                $decoded = json_decode($activity['metadata'], true);
+                $activity['metadata'] = $decoded ?: null;
+            } else {
+                $activity['metadata'] = null;
+            }
         }
         
         return $activities;
@@ -307,7 +336,12 @@ class ActivityLogger {
         
         // Process activities
         foreach ($activities as &$activity) {
-            $activity['metadata'] = $activity['metadata'] ? json_decode($activity['metadata'], true) : null;
+            if ($activity['metadata']) {
+                $decoded = json_decode($activity['metadata'], true);
+                $activity['metadata'] = $decoded ?: null;
+            } else {
+                $activity['metadata'] = null;
+            }
         }
         
         return $activities;
