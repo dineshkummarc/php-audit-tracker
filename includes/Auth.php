@@ -17,25 +17,7 @@ class Auth {
     
     public function __construct() {
         $this->db = Database::getInstance();
-        $this->startSession();
-    }
-    
-    /**
-     * Start session if not already started
-     */
-    private function startSession() {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_name(SESSION_NAME);
-            session_set_cookie_params([
-                'lifetime' => SESSION_LIFETIME,
-                'path' => '/',
-                'domain' => '',
-                'secure' => false, // Set to true in production with HTTPS
-                'httponly' => true,
-                'samesite' => 'Strict'
-            ]);
-            session_start();
-        }
+        // Session is now started in config.php
     }
     
     /**

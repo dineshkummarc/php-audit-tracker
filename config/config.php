@@ -40,6 +40,23 @@ define('PASSWORD_MIN_LENGTH', 8);
 define('MAX_LOGIN_ATTEMPTS', 5);
 define('LOGIN_LOCKOUT_TIME', 900); // 15 minutes
 
+// Start session with proper configuration
+if (session_status() === PHP_SESSION_NONE) {
+    session_name(SESSION_NAME);
+    
+    // Temporarily use root path for debugging
+    session_set_cookie_params([
+        'lifetime' => SESSION_LIFETIME,
+        'path' => '/',
+        'domain' => '',
+        'secure' => false, // Set to true in production with HTTPS
+        'httponly' => false, // Temporarily disable for debugging
+        'samesite' => 'Lax' // Change from Strict to Lax
+    ]);
+    
+    session_start();
+}
+
 // File Upload Configuration
 define('UPLOAD_DIR', APP_ROOT . '/uploads/');
 define('MAX_FILE_SIZE', 10 * 1024 * 1024); // 10MB
@@ -232,12 +249,12 @@ function getPortalRoute($role) {
         case 'audit_manager':
         case 'auditor':
         case 'management':
-            return '/admin/dashboard';
+            return BASE_URL . '/admin/dashboard';
         case 'client':
         case 'department':
-            return '/client/dashboard';
+            return BASE_URL . '/client/dashboard';
         default:
-            return '/';
+            return BASE_URL . '/';
     }
 }
 

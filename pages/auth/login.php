@@ -34,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = $auth->login($email, $password, $rememberMe);
         
         if ($result['success']) {
-            $success = $result['message'];
-            // Redirect after successful login
-            header("refresh:1;url=" . $result['redirect']);
+            // Redirect immediately after successful login
+            header("Location: " . $result['redirect']);
+            exit();
         } else {
             $error = $result['message'];
         }
