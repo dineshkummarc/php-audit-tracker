@@ -154,6 +154,58 @@ window.AuditTracker = {
         this.initializeSearch();
     },
     
+    // Initialize progress bars
+    initializeProgressBars: function() {
+        const progressBars = document.querySelectorAll('.progress-bar');
+        progressBars.forEach(bar => {
+            const percentage = bar.dataset.percentage || 0;
+            bar.style.width = percentage + '%';
+        });
+    },
+    
+    // Initialize date pickers
+    initializeDatePickers: function() {
+        const dateInputs = document.querySelectorAll('input[type="date"]');
+        dateInputs.forEach(input => {
+            // Add any date picker enhancements here
+            if (!input.value && input.dataset.defaultToday) {
+                input.value = new Date().toISOString().split('T')[0];
+            }
+        });
+    },
+    
+    // Initialize file uploads
+    initializeFileUploads: function() {
+        const fileInputs = document.querySelectorAll('input[type="file"]');
+        fileInputs.forEach(input => {
+            input.addEventListener('change', function(e) {
+                const files = e.target.files;
+                if (files.length > 0) {
+                    const fileName = files[0].name;
+                    const fileSize = (files[0].size / 1024 / 1024).toFixed(2);
+                    console.log(`File selected: ${fileName} (${fileSize} MB)`);
+                }
+            });
+        });
+    },
+    
+    // Initialize search functionality
+    initializeSearch: function() {
+        const searchInputs = document.querySelectorAll('[data-search]');
+        searchInputs.forEach(input => {
+            input.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const searchableElements = document.querySelectorAll('[data-searchable]');
+                
+                searchableElements.forEach(element => {
+                    const text = element.textContent.toLowerCase();
+                    const matches = text.includes(searchTerm);
+                    element.style.display = matches ? '' : 'none';
+                });
+            });
+        });
+    },
+    
     // Handle form submissions
     handleFormSubmit: function(e) {
         const form = e.target;
